@@ -2,6 +2,8 @@
 [Bb]uild/
 [Oo]ut/
 
+__pycache__/
+
 # IDE and editor configuration directories.
 .vscode/
 .vs/
