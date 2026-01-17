@@ -37,12 +37,6 @@ executable(
   'currency-calculator',
   'src/cpp/main.cpp',
 
-  'src/cpp/fetch.h',
-  'src/cpp/fetch.cpp',
-
-  'src/cpp/parse.h',
-  'src/cpp/parse.cpp',
-
   include_directories: [
     'src',
     'vendor/libcurl/include',
