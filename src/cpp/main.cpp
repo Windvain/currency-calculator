@@ -6,6 +6,7 @@
 #include <json.h>
 #include <curl/curl.h>
 
+// magic
 struct json_data_t
 {
     float return_val;
@@ -16,6 +17,7 @@ struct json_data_t
     bool date_found_ = false;
 };
 
+// magic
 static std::size_t json_write_callback(void* contents, std::size_t size,
                                        std::size_t bytes, void* user_data)
 {
@@ -27,6 +29,7 @@ static std::size_t json_write_callback(void* contents, std::size_t size,
     return bytes_written;
 }
 
+// Mendapatkan data kurs valuta asing dari website.
 static std::string fetch_currency_exchange_rates(const std::string_view base_currency)
 {
     // Thanks to github.com/fawazahmed0/exchange-api for the forex information.
@@ -63,6 +66,7 @@ static std::string fetch_currency_exchange_rates(const std::string_view base_cur
     return json_contents;
 }
 
+// magic
 int json_parser_cb(void* user_data, int type, const char* data, unsigned int length)
 {
     json_data_t* json_data = static_cast<json_data_t*>(user_data);
@@ -89,6 +93,7 @@ int json_parser_cb(void* user_data, int type, const char* data, unsigned int len
     return 0;
 }
 
+// Mengurai data JSON kurs valuta asing menjadi data yang bisa dipakai.
 json_data_t parse_data(const std::string_view json_data,
                        const std::string_view result_currency)
 {
@@ -109,7 +114,9 @@ json_data_t parse_data(const std::string_view json_data,
     return user_data;
 }
 
-bool functionality()
+// Fungsi yang mengandung kode utama program. Akan mengembalikan hasil true jika pengguna ingin
+// mengulang dan false jika tidak.
+bool app_main()
 {
     std::string json_data;
 
@@ -176,5 +183,5 @@ bool functionality()
 int main()
 {
     std::cout << "=====[Kalkulator Kurs Valuta Asing]=====\n";
-    while (functionality());
+    while (app_main());
 }
