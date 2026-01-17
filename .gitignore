@@ -1,0 +1,16 @@
+# Common directory names for CMake output.
+[Bb]uild/
+[Oo]ut/
+
+# IDE and editor configuration directories.
+.vscode/
+.vs/
+
+.cache/
+.ccls-cache/
+
+.idea/
+
+# Some LSPs require compile_commands.json to be generated in order to
+# do syntax highlighting.
+compile_commands.json
